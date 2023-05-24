@@ -42,10 +42,16 @@ const producto_Put = (req, res = response) => {
         message: "PUT API - Controller"
     })
 }
-const producto_Delete = (req, res = response) => {
+const producto_Delete = async (req, res = response) => {
+
+    const { id } = req.params;
+
+    const query = await Producto.findByIdAndUpdate(id, { estado: false }, { new: true });
+
     res.status(200).json({
-        message: "DELETE API - Controller"
-    })
+        message: "DELETE API - Controller",
+        query
+    });
 }
 
 module.exports = {

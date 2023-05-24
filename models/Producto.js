@@ -29,7 +29,12 @@ const ProductoSchema = Schema({
     cantidad: {
         type: Number,
         required: [true, 'la cantidad es requerida']
-    }
+    },
+
+    estado: {
+        type: Boolean,
+        default: true
+    },
 
 });
 

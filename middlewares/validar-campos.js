@@ -8,7 +8,6 @@ const validarCampos = (request, response, next) => {
         return response.status(400).json(errors);
     }
     next();
-    
 }
 
 module.exports = {

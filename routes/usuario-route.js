@@ -29,7 +29,7 @@ router.put('/:id',[
     validarCampos
 ], usuario_Put);
 
-router.delete('/', usuario_Delete);
+router.delete('/:id', usuario_Delete);
 
 
 
