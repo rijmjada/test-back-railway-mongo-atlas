@@ -6,17 +6,23 @@ const Producto = require('../models/Producto');
 
 const producto_Get = async (req, res = response) => {
 
-    const retQuery = await Producto.find();
+    const { autor, titulo, genero } = req.query;
 
+    const condiciones = {};
 
+    if (autor) condiciones.autor = autor;
+    if (titulo) condiciones.titulo = titulo;
+    if (genero) condiciones.genero = genero;
+
+    const query = await Producto.find(condiciones);
 
     res.status(200).json({
-        retQuery
+        query
     })
 }
 
-const producto_Post = async (req, res = response) => {
 
+const producto_Post = async (req, res = response) => {
 
     const { cantidad, autor, titulo, genero, precio, img } = req.body;
 
