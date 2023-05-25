@@ -13,6 +13,7 @@ const producto_Get = async (req, res = response) => {
     if (autor) condiciones.autor = autor;
     if (titulo) condiciones.titulo = titulo;
     if (genero) condiciones.genero = genero;
+    condiciones.estado = true;
 
     const query = await Producto.find(condiciones);
 
